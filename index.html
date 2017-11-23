@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<title>Exercice1</title>
+<body ng-app>
+  <h2>Validation Example</h2>
+  <form name="Mail">
+    <p>Email:<br>
+      <!--On crée un input email-->
+      <input type="email" name="email" ng-model="email" required>
+        <!--On sélectionne myForm, puis name = email, puis si c'est vide ($error.required) un message est renvoyé-->
+        <span ng-show="Mail.email.$error.required">Email is required.</span>
+        <!--On sélectionne myForm, puis name = email, puis si le mail n'est pas correcte ($error.email  type email), un message est renvoyé-->
+        <span style="color:red" ng-show="Mail.email.$error.email">Invalid email address.</span>
+        <!--Si l'adresse mail est valide, on affiche un message-->
+        <!--Dans l'ordre : Mail -> name="Mail", email -> type="email", $valid-key.email -> si le mail est valide, email -> type="email"-->
+        <span style="color:green" ng-show="Mail.email.$valid-key.email">Mail valide</span>
+    </p>
+  </form>
+</body>
+</html>
